@@ -10,14 +10,23 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); //path.join dice que una esas dos directivas
+app.set('view engine', 'ejs'); //motor a utilizar de plantillas ejs
+
+/***********/
+// esto son Middlewares de nuestra aplicacion
+// Los evalua Express ante cada peticion que recibe.
+/***********/
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+/**********/
+// Rutas de mi website
+/**********/
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
