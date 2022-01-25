@@ -1,18 +1,23 @@
 'use strict';
 
 // Cargo libreria de express
-const libExpress = require('express');
+const express = require('express');
 
-// Crreo la aplicacion
-const appExpress = libExpress();
+// Creo la aplicación
+const appExpress = express();
 
-//  ponemos metodos de la aplicacion
-appExpress.get('/', (req, res, next) => { // req(objeto de la peticion) res(objeto de respuesta)
+// Metodos de la aplicación
+appExpress.use((req, res, next) => { // req:(objeto de la peticion) res:(objeto de respuesta)
     console.log('recibo una petición a:', req.originalUrl);
-    res.send('Hola');
+    next();
 });
 
-// arrancamos la aplicacion
+// Middlewares
+appExpress.get('/pepe', (req, res, next) => {
+    res.send('Soy Pepe');
+})
+
+// Arranco la aplicación
 appExpress.listen(7000, () => {
     console.log('Servidor de HTTP arrancado en http://localhost:7000');
 });
