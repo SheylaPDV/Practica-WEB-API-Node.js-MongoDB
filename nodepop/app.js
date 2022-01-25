@@ -13,16 +13,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views')); //path.join dice que una esas dos directivas
 app.set('view engine', 'ejs'); //motor a utilizar de plantillas ejs
 
+
+app.locals.title = 'NodePOP';
+
 /***********/
 // esto son Middlewares de nuestra aplicacion
 // Los evalua Express ante cada peticion que recibe.
 /***********/
 
-app.use(logger('dev'));
+app.use(logger('dev')); //middleware de log(lo que aparece en la terminal)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));//Middleware de estaticos
 
 /**********/
 // Rutas de mi website
