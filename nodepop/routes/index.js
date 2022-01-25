@@ -5,6 +5,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
   res.locals.productos = 'LISTA DE PRODUCTOS:';
+  res.locals.usuarios = [
+    { nombre: 'Sheyla', edad: 30}
+  ];
   res.render('index');
 });
 
