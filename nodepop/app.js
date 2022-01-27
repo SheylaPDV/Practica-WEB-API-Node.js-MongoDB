@@ -18,7 +18,7 @@ app.locals.title = 'NodePOP';
 
 /***********/
 // esto son Middlewares de nuestra aplicacion
-// Los evalua Express ante cada peticion que recibe.
+// Los evalua Express ante cada peticion q ue recibe.
 /***********/
 
 app.use(logger('dev')); //middleware de log(lo que aparece en la terminal)
