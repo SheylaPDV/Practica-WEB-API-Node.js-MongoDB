@@ -58,3 +58,6 @@ npm run start || npm start
 ```sh
 npm i cross-env
 ```
+
+- Instrucciones de como arrancar servidor en MongoDB:
+```sh
