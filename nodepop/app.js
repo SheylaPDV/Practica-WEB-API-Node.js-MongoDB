@@ -9,6 +9,8 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+require('./data/conexion_mongoDB');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); //path.join dice que una esas dos directivas
 app.set('view engine', 'ejs'); //motor a utilizar de plantillas ejs
@@ -26,6 +28,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));//Middleware de estaticos
+
+/**********/
+//Rutas de mi API
+/***********/
+
+app.use('/routes/productos', require('./routes/productos'));
 
 /**********/
 // Rutas de mi website
