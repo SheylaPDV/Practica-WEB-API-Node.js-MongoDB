@@ -11,7 +11,7 @@ mongoose.connection.once('open', () => {
     console.log('Conectado a MongoDB en la BD:', mongoose.connection.name);
 });
 
-mongoose.connect('mongodb://localhost/productospop');
+mongoose.connect('mongodb://localhost/productospop'); // si no existe la crea
 
 
 //opcional, no hace falta exportar

@@ -12,22 +12,28 @@ router.get('/', async (req, res, next) => {
 
     try {
         const name = req.query.name;
-        const precio
+        const precio = req.query.precio;
+        const skip = req.query.skip;
+        const limit = req.query.limit;
+        const select = req.query.select;
+        const sort = req.query.sort;
 
         const filtros = {};
 
         if (name) {
             filtros.name = name;
         }
+        if (precio) {
+            filtros.precio = precio;
+        }
 
-        const productos = await Producto.lista(filtros);
+        const productos = await Producto.lista(filtros, skip, limit, select, sort);
 
         res.json({ results: productos })
     } catch (err) {
         next(err);
     }
 });
-
 // GET /routes/productos
 // devuelve un agente por id
 
@@ -48,23 +54,23 @@ router.get('/', async (req, res, next) => {
 // // POST /routes/productos
 // // Esto crea un nuevo producto desde postman
 
-// router.post('/', async (req, res, next) => {
-//     try {
-//         const nuevoProducto = req.body;
+router.post('/', async (req, res, next) => {
+    try {
+        const nuevoProducto = "req.body;"
 
-//         // Creo un objeto de agente EN MEMORIA
-//         const producto = new Producto(nuevoProducto);
+        // Creo un objeto de agente EN MEMORIA
+        const producto = new Producto(nuevoProducto);
 
-//         // Guardando nuevo producto
-//         const productoGuardado = await producto.save();
+        // Guardando nuevo producto
+        const productoGuardado = await producto.save();
 
-//         // respondo
-//         res.status(201).json({ results: productoGuardado });
+        // respondo
+        res.status(201).json({ results: productoGuardado });
 
-//     } catch (err) {
-//         next(err);
-//     }
-// });
+    } catch (err) {
+        next(err);
+    }
+});
 
 // // DELETE /routes/productos/:id
 // // Elimina producto desde postman

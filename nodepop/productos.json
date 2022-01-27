@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "Bicicleta",
+        "venta": true,
+        "precio": 2030,
+        "foto": "",
+        "tags": ["lifestyle", "motor"]
+    },
+    {
+        "nombre": "Moto Honda",
+        "venta": false,
+        "precio": 4000,
+        "foto": "./public/images/img_productos/moto.png",
+        "tags": ["work", "motor"]
+    }
+]
