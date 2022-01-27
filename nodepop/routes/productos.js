@@ -1,7 +1,7 @@
 'use strict';
 
+// Importo librerias
 const express = require('express');
-
 const router = express.Router();
 const Producto = require('../modelos/Producto');
 
@@ -11,11 +11,18 @@ const Producto = require('../modelos/Producto');
 router.get('/', async (req, res, next) => {
 
     try {
+        const name = req.query.name;
+        const precio
 
-        const productos = await Producto.find();
+        const filtros = {};
+
+        if (name) {
+            filtros.name = name;
+        }
+
+        const productos = await Producto.lista(filtros);
 
         res.json({ results: productos })
-
     } catch (err) {
         next(err);
     }
@@ -24,37 +31,71 @@ router.get('/', async (req, res, next) => {
 // GET /routes/productos
 // devuelve un agente por id
 
-router.get('/:id', async (req, res, next) => {
+// router.get('/:id', async (req, res, next) => {
 
-    try {
-        const id = req.params.id;
+//     try {
+//         const id = req.params.id;
 
-        const producto = await Producto.findOne({ _id: id })
-        res.json({ results: producto });
-    } catch (err) {
-        next(err)
-    }
-});
+//         const producto = await Producto.findOne({ _id: id })
 
-// POST /routes/productos
-// Esto crea un nuevo producto desde postman
+//         agente.saluda();
+//         res.json({ results: producto });
+//     } catch (err) {
+//         next(err)
+//     }
+// });
 
-router.post('/', async (req, res, next) => {
-    try {
-        const nuevoProducto = req.body;
+// // POST /routes/productos
+// // Esto crea un nuevo producto desde postman
 
-        // Creo un objeto de agente EN MEMORIA
-        const producto = new Producto(nuevoProducto);
+// router.post('/', async (req, res, next) => {
+//     try {
+//         const nuevoProducto = req.body;
 
-        // Guardando nuevo producto
-        const productoGuardado = await producto.save();
+//         // Creo un objeto de agente EN MEMORIA
+//         const producto = new Producto(nuevoProducto);
 
-        // respondo
-        res.status(201).json({ results: productoGuardado });
+//         // Guardando nuevo producto
+//         const productoGuardado = await producto.save();
 
-    } catch (err) {
-        next(err);
-    }
-})
+//         // respondo
+//         res.status(201).json({ results: productoGuardado });
+
+//     } catch (err) {
+//         next(err);
+//     }
+// });
+
+// // DELETE /routes/productos/:id
+// // Elimina producto desde postman
+
+// router.delete('/:id', async (req, res, next) => {
+//     try {
+//         const id = req.params.id;
+
+//         await Producto.deleteOne({ _id: id });
+
+//         res.json();
+//     } catch (err) {
+//         next(err);
+//     }
+// })
+
+// // PUT routes/productos:id
+// // Actualizar producto
+
+// router.put('/:id', async (req, res, next) => {
+//     try {
+//         const id = req.params.id;
+//         const productoData = req.body;
+
+//         const productoActualizado = await Producto.findByIdAndUpdate(id, productoData, {
+//             new: true //esta opcion es para que nos devuelva el estado final del documento modificado
+//         });
+//         res.json({ results: productoActualizado });
+//     } catch (err) {
+//         next(err);
+//     }
+// });
 
 module.exports = router;

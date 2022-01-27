@@ -11,7 +11,12 @@ const anuncioSchema = mongoose.Schema({
     tags: [String]
 }, {
     collection: 'productospop'
-})
+});
+
+// metodo estatico del modelo
+anuncioSchema.statics.lista = function(filtros) {
+    return Productospop.find({filtros})
+}
 
 // creo el modelo con ese esquema
 const Productospop = mongoose.model('Productospop', anuncioSchema);

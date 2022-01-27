@@ -64,9 +64,14 @@ npm i cross-env
 - El api se accede en el directorio routes
 
 Mostrar lista de productos:
-- /routes/productos
+- GET /routes/productos
 
 Buscar un producto por ID:
-- /routes/productos/:id
+- GET /routes/productos/:id
 
+Eliminar un producto:
+- DELETE /routes/productos/:id
+
+Crear un producto:
+- POST /routes/productos
 
