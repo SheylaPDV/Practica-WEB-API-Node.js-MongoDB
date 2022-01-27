@@ -59,5 +59,14 @@ npm run start || npm start
 npm i cross-env
 ```
 
-- Instrucciones de como arrancar servidor en MongoDB:
-```sh
+## METODOS DEL API
+
+- El api se accede en el directorio routes
+
+Mostrar lista de productos:
+- /routes/productos
+
+Buscar un producto por ID:
+- /routes/productos/:id
+
+
