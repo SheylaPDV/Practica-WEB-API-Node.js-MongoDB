@@ -15,13 +15,14 @@ const anuncioSchema = mongoose.Schema({
 
 // metodo estatico del modelo
 anuncioSchema.statics.lista = function(filtros, skip, limit, select, sort) {
-    const query = Productospop.find({filtros});
+    
+    const query = Productospop.find(filtros);
     query.skip(skip);
     query.limit(limit);
     query.select(select);
     query.sort(sort);
     return query.exec();
-}
+};
    
 
 // creo el modelo con ese esquema

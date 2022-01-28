@@ -1,6 +1,6 @@
 [
     {
-        "nombre": "Bicicleta",
+        "nombre": "Coche Seat",
         "venta": true,
         "precio": 2030,
         "foto": "",
@@ -10,7 +10,21 @@
         "nombre": "Moto Honda",
         "venta": false,
         "precio": 4000,
-        "foto": "./public/images/img_productos/moto.png",
+        "foto": "/images/img_productos/moto.png",
         "tags": ["work", "motor"]
+    },
+    {
+        "nombre": "Bicicleta",
+        "venta": false,
+        "precio": 378,
+        "foto": "/images/img_productos/moto.png",
+        "tags": ["motor"]
+    },
+    {
+        "nombre": "Mancuernas",
+        "venta": true,
+        "precio": 20,
+        "foto": "/images/img_productos/moto.png",
+        "tags": ["lifestyle"]
     }
 ]

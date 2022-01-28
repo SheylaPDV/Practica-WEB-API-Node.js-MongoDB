@@ -8,24 +8,40 @@ const Producto = require('../modelos/Producto');
 // GET /routes/productos 
 // (peticion para qe devuelva una lista de productos)
 
-router.get('/', async (req, res, next) => {
 
+router.get('/', async (req, res, next) => {
+    
     try {
-        const name = req.query.name;
+        const nombre = req.query.nombre;
         const precio = req.query.precio;
+        const venta = req.query.venta;
+        const tags = req.query.tags;
+        const foto = req.query.foto;
         const skip = req.query.skip;
         const limit = req.query.limit;
         const select = req.query.select;
         const sort = req.query.sort;
 
         const filtros = {};
+        
+        console.log(nombre)
 
-        if (name) {
-            filtros.name = name;
+        if (nombre) {
+            filtros.nombre = nombre;
         }
         if (precio) {
             filtros.precio = precio;
         }
+        if (venta) {
+            filtros.venta = venta;
+        }
+        if (tags) {
+            filtros.tags = tags;
+        }
+        if (foto) {
+            filtros.foto = foto;
+        };
+
 
         const productos = await Producto.lista(filtros, skip, limit, select, sort);
 
@@ -33,8 +49,11 @@ router.get('/', async (req, res, next) => {
     } catch (err) {
         next(err);
     }
+    
 });
-// GET /routes/productos
+
+
+// // GET /routes/productos
 // devuelve un agente por id
 
 // router.get('/:id', async (req, res, next) => {

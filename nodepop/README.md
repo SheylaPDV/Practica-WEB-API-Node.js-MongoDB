@@ -15,30 +15,15 @@ En desarrollo:
 ```sh
 npm run dev
 ```
+
+## Iniciar BD
+
+```sh
+nodemon initDB.js
+```
 ----------------------------
-Pasos que he seguido en la práctica: (esto tendré que borrarlo, no sirve)
 
-- Creo package.json dentro de express con comando:
-```sh
-npm init -y
-```
-
-- Instalo express con el comando:
-```sh
-npm install express
-```
-
-- Para arrancar Express:
-```sh
-nodemon index.js
-```
--------------------------------
-- Creo Express generator desde carpeta inicio - (ejs es un motor de plantillas)
-```sh
-npx express-generator nodepop --ejs
-```
-
-- Opciones para arrancar la aplicacion en http//localhost:3000:
+## Inicializar la aplicacion en http//localhost:3000:
 ```sh
 node ./bin/www
 ```
@@ -59,7 +44,7 @@ npm run start || npm start
 npm i cross-env
 ```
 
-## METODOS DEL API
+## METODOS DEL API 
 
 - El api se accede en el directorio routes
 
@@ -74,4 +59,18 @@ Eliminar un producto:
 
 Crear un producto:
 - POST /routes/productos
+
+Paginación:
+- http://localhost:3000/routes/productos/?skip=2&limit=2
+
+Filtros:
+- http://localhost:3000/routes/productos/?name='Bicicleta'&venta=true
+
+Eligiendo campos:
+- http://localhost:3000/routes/productos/?select=nombre -_id tags
+
+Ordenacion:
+- http://localhost:3000/routes/productos/?sort=nombre venta
+
+
 

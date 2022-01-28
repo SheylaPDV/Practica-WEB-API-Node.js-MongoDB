@@ -8,8 +8,27 @@
     
     <% include header.ejs %>
 
-    <h2><%= productos %></h2>
-    
+    <h2><%= tituloProductos %></h2>
 
+
+    <% productos.forEach( producto => { %>
+      <li>
+        Nombre: <%= producto.nombre %>
+        <li>
+          <%= producto.venta %>
+        </li>
+        <li>
+          <%= producto.precio %>
+        </li>
+        <li>
+          <img src="<%= producto.foto %>" alt="" width="100px" height="100px">
+          
+        </li>
+        <li>
+          <%= producto.tags %>
+        </li>
+      </li>
+    <% }) %>
+    
   </body>
 </html>
