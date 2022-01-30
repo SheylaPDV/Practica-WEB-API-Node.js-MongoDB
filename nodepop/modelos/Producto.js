@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 // definir un esquema)
 const anuncioSchema = mongoose.Schema({
-    nombre: String,
+    nombre: { type: String, index: true },
     venta: Boolean,
     precio: Number,
     foto: String,

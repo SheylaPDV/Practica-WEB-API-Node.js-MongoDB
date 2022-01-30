@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));//Middleware de estatico
 //Rutas de mi API
 /***********/
 
-app.use('/routes/productos', require('./routes/productos'));
+// app.use('/routes/productos', require('./routes/productos'));
 
 /**********/
 // Rutas de mi website

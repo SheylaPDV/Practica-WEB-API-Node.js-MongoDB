@@ -1,30 +1,30 @@
 [
     {
-        "nombre": "Coche Seat",
+        "nombre": "BMW",
         "venta": true,
-        "precio": 2030,
-        "foto": "",
+        "precio": 15030,
+        "foto": "/images/img_productos/bmw.jpg",
         "tags": ["lifestyle", "motor"]
     },
     {
         "nombre": "Moto Honda",
         "venta": false,
         "precio": 4000,
-        "foto": "/images/img_productos/moto.png",
+        "foto": "/images/img_productos/moto.jpg",
         "tags": ["work", "motor"]
     },
     {
         "nombre": "Bicicleta",
         "venta": false,
         "precio": 378,
-        "foto": "/images/img_productos/moto.png",
+        "foto": "/images/img_productos/bicicleta.jpg",
         "tags": ["motor"]
     },
     {
         "nombre": "Mancuernas",
         "venta": true,
         "precio": 20,
-        "foto": "/images/img_productos/moto.png",
+        "foto": "/images/img_productos/mancuernas.jpg",
         "tags": ["lifestyle"]
     }
 ]

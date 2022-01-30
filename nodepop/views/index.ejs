@@ -12,22 +12,26 @@
 
 
     <% productos.forEach( producto => { %>
-      <li>
-        Nombre: <%= producto.nombre %>
-        <li>
-          <%= producto.venta %>
-        </li>
-        <li>
-          <%= producto.precio %>
-        </li>
-        <li>
-          <img src="<%= producto.foto %>" alt="" width="100px" height="100px">
-          
-        </li>
-        <li>
+    <div>
+        <img src="<%= producto.foto %>" alt="">
+        <h2>
+          <%= producto.nombre %>
+        </h2>
+        <p>
+          Precio: <%= producto.precio %>
+        </p>
+        <p>
+          <% if (producto.venta) { %>
+            Se vende
+          <% } else { %>
+            Se compra
+          <% } %>
+        </p>
+        <h5>
+          TAGS:
+        </h5>
           <%= producto.tags %>
-        </li>
-      </li>
+    </div>
     <% }) %>
     
   </body>
