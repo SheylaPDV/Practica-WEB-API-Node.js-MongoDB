@@ -29,6 +29,13 @@ npm run initdb
  apiv1/anuncios
  ```
 ----------------------------
+## METODOS DEL API
+
+- para crear un producto, hacemos un POST a esta URL: http://localhost:3000/apiv1/anuncios
+
+- En el cuerpo de la peticion, completamos los datos del producto.
+Se adjunta una coleccion Postman con un ejemplo.
+
 
 ## EJEMPLOS DE FILTROS
 

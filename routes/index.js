@@ -53,4 +53,23 @@ router.get('/apiv1/anuncios', async function (req, res, next) {
   res.render('index');
 });
 
+// POST 
+// Crea un nuevo producto
+router.post('/apiv1/anuncios', async (req, res, next) => {
+  try {
+    const productoData= req.body;
+    console.log(productoData)
+
+    const producto = new Producto(productoData);
+
+    const productoGuardado = await producto.save();
+
+    res.status(201).json({ result: productoGuardado });
+  
+
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "ae2169c5-e3b1-4b99-a317-d4adde4cb127",
+		"name": "Nodepop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "gato",
+							"type": "default"
+						},
+						{
+							"key": "precio",
+							"value": "50",
+							"type": "default"
+						},
+						{
+							"key": "venta",
+							"value": "true",
+							"type": "default"
+						},
+						{
+							"key": "tags",
+							"value": "motor",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/apiv1/anuncios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"apiv1",
+						"anuncios"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
