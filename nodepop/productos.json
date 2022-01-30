@@ -26,5 +26,47 @@
         "precio": 20,
         "foto": "/images/img_productos/mancuernas.jpg",
         "tags": ["lifestyle"]
+    },
+    {
+        "nombre": "Furgoneta ford",
+        "venta": true,
+        "precio": 2000,
+        "foto": "/images/img_productos/furgoneta.jpg",
+        "tags": ["work", "motor"]
+    },
+    {
+        "nombre": "Cortinas Bob",
+        "venta": false,
+        "precio": 10,
+        "foto": "/images/img_productos/cortina.jpg",
+        "tags": ["textil"]
+    },
+    {
+        "nombre": "Bicicleta electrica",
+        "venta": true,
+        "precio": 1200,
+        "foto": "/images/img_productos/bicicleta_electrica.jpg",
+        "tags": ["work", "motor"]
+    },
+    {
+        "nombre": "Vestido playero",
+        "venta": true,
+        "precio": 30,
+        "foto": "/images/img_productos/vestido.jpg",
+        "tags": ["moda", "textil"]
+    },
+    {
+        "nombre": "Ordenador HP",
+        "venta": false,
+        "precio": 450,
+        "foto": "/images/img_productos/ordenador.jpg",
+        "tags": ["work", "electronica"]
+    },
+    {
+        "nombre": "Camiseta",
+        "venta": true,
+        "precio": 15,
+        "foto": "/images/img_productos/camiseta.jpg",
+        "tags": ["moda", "textil"]
     }
 ]
