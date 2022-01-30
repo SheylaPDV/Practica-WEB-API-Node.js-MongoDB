@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <h1 class="tituloPrincipal"><%= title %></h1>
+  <h3>¡Bienvenido a <%= title %>!</h3>
+    <h2>
+      <%= tituloProductos %>
+    </h2>
     
-    <% include header.ejs %>
-
-    <h2><%= tituloProductos %></h2>
-
-
-    <% productos.forEach( producto => { %>
-    <div>
+    <% productos.forEach( producto=> { %>
+      <div>
         <img src="<%= producto.foto %>" alt="">
         <h2>
           <%= producto.nombre %>
@@ -23,16 +28,17 @@
         <p>
           <% if (producto.venta) { %>
             Se vende
-          <% } else { %>
-            Se compra
-          <% } %>
+            <% } else { %>
+              Se compra
+              <% } %>
         </p>
         <h5>
           TAGS:
         </h5>
-          <%= producto.tags %>
-    </div>
-    <% }) %>
-    
-  </body>
+        <%= producto.tags %>
+      </div>
+      <% }) %>
+
+</body>
+
 </html>

@@ -16,61 +16,57 @@ En desarrollo:
 npm run dev
 ```
 
-## Iniciar BD
+## Iniciar BD:
+
+- Borrará todos los productos y los volverá a  meter desde el fichero productos.json dentro de la BD:
 
 ```sh
-nodemon initDB.js
+npm run initdb
 ```
+- El api se accede en el directorio:
+
+```sh
+ apiv1/anuncios
+ ```
 ----------------------------
 
-## Inicializar la aplicacion en http//localhost:3000:
-```sh
-node ./bin/www
-```
-```sh
-nodemon 
-```
-(con el comando nodemon, si hay un index.js lo ejecuta)
-```sh
-npm run start || npm start
-```
-
-- Añado en package json: 
-```sh
-"dev": "cross-env DEBUG=nodeapp:* nodemon" 
-```
-- Instalo libreria cross-env para ejecutarlo desde cualquier sistema operativo - 
-```sh
-npm i cross-env
-```
-
-## METODOS DEL API 
-
-- El api se accede en el directorio routes
+## EJEMPLOS DE FILTROS
 
 Mostrar lista de productos:
-- GET /routes/productos
+- http://localhost:3000/apiv1/anuncios
 
-Buscar un producto por ID:
-- GET /routes/productos/:id
+Filtro por paginación:
+- http://localhost:3000/apiv1/anuncios/?skip=2&limit=2
 
-Eliminar un producto:
-- DELETE /routes/productos/:id
+Filtros por nombre con regExp:
 
-Crear un producto:
-- POST /routes/productos
+http://localhost:3000/apiv1/anuncios/?nombre=bicicleta&venta=false
+http://localhost:3000/apiv1/anuncios/?nombre=bi&venta=false
 
-Paginación:
-- http://localhost:3000/routes/productos/?skip=2&limit=2
+Filtro por TAG:
 
-Filtros:
-- http://localhost:3000/routes/productos/?name='Bicicleta'&venta=true
+http://localhost:3000/apiv1/anuncios?tags=work
 
-Eligiendo campos:
-- http://localhost:3000/routes/productos/?select=nombre -_id tags
+Filtro por venta/busqueda:
+
+http://localhost:3000/apiv1/anuncios?venta=true
 
 Ordenacion:
-- http://localhost:3000/routes/productos/?sort=nombre venta
+
+- http://localhost:3000/apiv1/anuncios/?sort=nombre
+
+- http://localhost:3000/apiv1/anuncios/?sort=precio
+
+Rango de precio:
+
+Este filtro solo cumplo en caso de que el numero sea menor que o igual que:
+
+igual que:
+- http://localhost:3000/apiv1/anuncios?precio=20 
+
+menor que:
+- http://localhost:3000/apiv1/anuncios?precio=-380
+
 
 
 

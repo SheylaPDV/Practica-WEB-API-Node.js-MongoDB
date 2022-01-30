@@ -27,10 +27,10 @@ router.get('/apiv1/anuncios', async function (req, res, next) {
       console.log("Filtros" + filtros)
     }
     if (precio) {
-      if (precio >= 0) {
-        filtros.precio = { $gt: precio};
-      }else{
-        filtros.precio = { $lt: (precio * -1) };
+      if (precio < 0) {
+        filtros.precio = { $lte: (precio * -1) };
+      } else {
+        filtros.precio = precio;
       }
     }
     if (venta) {
@@ -45,51 +45,12 @@ router.get('/apiv1/anuncios', async function (req, res, next) {
 
     const productos = await Producto.lista(filtros, skip, limit, select, sort);
     res.locals.productos = productos;
-    
+
   } catch (err) {
     next(err);
-  }
+  };
 
   res.render('index');
-});
-
-
-// // POST /routes/productos
-// // Esto crea un nuevo producto desde postman
-
-router.post('/', async (req, res, next) => {
-  try {
-      const nuevoProducto = "req.body;"
-
-      // Creo un objeto de agente EN MEMORIA
-      const producto = new Producto(nuevoProducto);
-
-      // Guardando nuevo producto
-      const productoGuardado = await producto.save();
-
-      // respondo
-      res.status(201).json({ results: productoGuardado });
-
-  } catch (err) {
-      next(err);
-  }
-});
-
-// // GET /routes/productos
-// devuelve un agente por id
-
-router.get('/:id', async (req, res, next) => {
-
-    try {
-        const id = req.params.id;
-
-        const producto = await Producto.findOne({ _id: id })
-
-        agente.saluda();
-        res.json({ results: producto });
-    } catch (err) {
-        next(err)
-    }
 });
 
 module.exports = router;
