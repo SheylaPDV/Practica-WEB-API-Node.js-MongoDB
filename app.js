@@ -31,7 +31,7 @@ app.use(logger('dev')); //middleware de log(lo que aparece en la terminal)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); //Middleware de estaticos
+app.use(express.static(path.join(__dirname, 'publicOne'))); //Middleware de estaticos
 
 /**********/
 //Rutas de mi API
