@@ -1,0 +1,9 @@
+{
+	"How are you": "How are you",
+	"i18n example for plurals": "i18n example for plurals",
+	"Mouse": {
+		"one": "Mouse",
+		"other": "Mice"
+	},
+	"this is an example": "this is an example"
+}

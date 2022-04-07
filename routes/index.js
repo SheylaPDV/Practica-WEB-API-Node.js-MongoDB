@@ -6,8 +6,9 @@ const Producto = require('../modelos/Producto');
 
 /* GET página inicio */
 router.get('/apiv1/anuncios', async function (req, res, next) {
-
   res.locals.tituloProductos = 'LISTA DE PRODUCTOS:';
+  const mensaje = res.__('this is an example');
+  res.locals.ejemplo = `<script>alert('${mensaje}')</script>`;
 
   try {
     const nombre = req.query.nombre;
@@ -23,12 +24,12 @@ router.get('/apiv1/anuncios', async function (req, res, next) {
     const filtros = {};
 
     if (nombre) {
-      filtros.nombre = new RegExp('^' + req.query.nombre, "i");
-      console.log("Filtros" + filtros)
+      filtros.nombre = new RegExp('^' + req.query.nombre, 'i');
+      console.log('Filtros' + filtros);
     }
     if (precio) {
       if (precio < 0) {
-        filtros.precio = { $lte: (precio * -1) };
+        filtros.precio = { $lte: precio * -1 };
       } else {
         filtros.precio = precio;
       }
@@ -41,32 +42,29 @@ router.get('/apiv1/anuncios', async function (req, res, next) {
     }
     if (foto) {
       filtros.foto = foto;
-    };
+    }
 
     const productos = await Producto.lista(filtros, skip, limit, select, sort);
     res.locals.productos = productos;
-
   } catch (err) {
     next(err);
-  };
+  }
 
   res.render('index');
 });
 
-// POST 
+// POST
 // Crea un nuevo producto
 router.post('/apiv1/anuncios', async (req, res, next) => {
   try {
-    const productoData= req.body;
-    console.log(productoData)
+    const productoData = req.body;
+    console.log(productoData);
 
     const producto = new Producto(productoData);
 
     const productoGuardado = await producto.save();
 
     res.status(201).json({ result: productoGuardado });
-  
-
   } catch (err) {
     next(err);
   }

@@ -2,17 +2,16 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connection.on('error', err => {
-    console.log('Error de conexión a MongoDB', err);
-    process.exit(1);
+mongoose.connection.on('error', (err) => {
+  console.log('Error de conexión a MongoDB', err);
+  process.exit(1);
 });
 
 mongoose.connection.once('open', () => {
-    console.log('Conectado a MongoDB en la BD:', mongoose.connection.name);
+  // console.log('Conectado a MongoDB en la BD:', mongoose.connection.name);
 });
 
-mongoose.connect('mongodb://localhost/productospop'); // si no existe la crea
-
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING); // si no existe la crea
 
 //opcional, no hace falta exportar
 module.exports = mongoose.connection;
