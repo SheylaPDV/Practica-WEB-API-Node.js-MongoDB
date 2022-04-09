@@ -39,7 +39,9 @@
       id="mainNav"
     >
       <div class="container px-5">
-        <a class="navbar-brand fw-bold" href="/">Nodepop</a>
+        <a class="navbar-brand fw-bold" href="/"><%= title %></a>
+        <% getLocales().forEach(locale => { %>
+        <a href="/change-locale/<%= locale %>"><%= locale %></a>&nbsp; <% }) %>
         <button
           class="navbar-toggler"
           type="button"
