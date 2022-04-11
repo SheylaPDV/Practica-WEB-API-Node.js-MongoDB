@@ -1,11 +1,15 @@
 {
-  "How are you": "Que tal estas",
-  "i18n example for plurals": "i18n ejemplo con plurales",
-  "Mouse": {
-    "one": "Raton",
-    "other": "Ratones"
-  },
-  "this is an example": "esto es un ejemplo",
-
-  "Features title": "Titulo de caracteristicas"
+	"How are you": "Que tal estas",
+	"i18n example for plurals": "i18n ejemplo con plurales",
+	"Mouse": {
+		"one": "Raton",
+		"other": "Ratones"
+	},
+	"this is an example": "esto es un ejemplo",
+	"Features title": "Titulo de caracteristicas",
+	"Login": "Login",
+	"Email or address": "Email or address",
+	"Password": "Password",
+	"Submit": "Submit",
+	"Email address": "Email address"
 }

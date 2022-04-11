@@ -6,6 +6,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const i18n = require('./data/i18nConfigure');
+const LoginController = require('./controllers/loginController');
 var app = express();
 
 require('./data/conexion_mongoDB');
@@ -31,13 +32,14 @@ app.use(express.static(path.join(__dirname, 'publicOne'))); //Middleware de esta
 // /setup de i18n
 // se encarga de coger la cabecera de la peticiion lenguagwe
 app.use(i18n.init);
-
+const loginController = new LoginController();
 // Rutas de mi website
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/features', require('./routes/features'));
 app.use('/change-locale', require('./routes/change-locale'));
+app.get('/login', loginController.index);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
