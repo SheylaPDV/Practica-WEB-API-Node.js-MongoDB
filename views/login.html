@@ -10,6 +10,7 @@
           <input
             name="email"
             type="email"
+            value="<%= email %>"
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
@@ -30,6 +31,7 @@
         <button type="submit" class="btn btn-primary">
           <%= __('Submit')%>
         </button>
+        <div><%= error %></div>
       </form>
     </div>
   </div>

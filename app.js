@@ -7,6 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const i18n = require('./data/i18nConfigure');
 const LoginController = require('./controllers/loginController');
+const PrivadoController = require('./controllers/privadoController');
 var app = express();
 
 require('./data/conexion_mongoDB');
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'publicOne'))); //Middleware de esta
 // se encarga de coger la cabecera de la peticiion lenguagwe
 app.use(i18n.init);
 const loginController = new LoginController();
+const privadoController = new PrivadoController();
 // Rutas de mi website
 
 app.use('/', indexRouter);
@@ -40,6 +42,8 @@ app.use('/users', usersRouter);
 app.use('/features', require('./routes/features'));
 app.use('/change-locale', require('./routes/change-locale'));
 app.get('/login', loginController.index);
+app.post('/login', loginController.post);
+app.get('/privado', privadoController.index);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

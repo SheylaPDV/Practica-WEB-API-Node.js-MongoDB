@@ -11,5 +11,7 @@
 	"Email or address": "Email or address",
 	"Password": "Password",
 	"Submit": "Submit",
-	"Email address": "Email address"
+	"Email address": "Email address",
+	"invalid credentials": "invalid credentials",
+	"Private zone": "Private zone"
 }
