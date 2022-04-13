@@ -55,7 +55,7 @@ router.get('/', async function (req, res, next) {
 
 // POST
 // Crea un nuevo producto
-router.post('/apiv1/anuncios', async (req, res, next) => {
+router.post('/api/anuncios', async (req, res, next) => {
   try {
     const productoData = req.body;
     console.log(productoData);

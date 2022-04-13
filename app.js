@@ -8,12 +8,15 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const i18n = require('./data/i18nConfigure');
 const sessionAuth = require('./data/sessionAuth');
+const basicAuthMiddleware = require('./data/basicAuthMiddleware');
 const MongoStore = require('connect-mongo');
 var app = express();
 const LoginController = require('./controllers/loginController');
 const PrivadoController = require('./controllers/privadoController');
 require('./data/conexion_mongoDB');
-
+const loginController = new LoginController();
+const privadoController = new PrivadoController();
+const jwtAuth = require('./data/jwtAuth');
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); //path.join dice que una esas dos directivas
 app.set('view engine', 'html'); //motor a utilizar de plantillas ejs
@@ -35,8 +38,8 @@ app.use(express.static(path.join(__dirname, 'publicOne'))); //Middleware de esta
 // /setup de i18n
 // se encarga de coger la cabecera de la peticiion lenguagwe
 app.use(i18n.init);
-const loginController = new LoginController();
-const privadoController = new PrivadoController();
+app.use('/', jwtAuth, require('./routes/index'));
+app.post('/api/authenticate', loginController.postJWT);
 
 // setup de sesiones del website
 app.use(
@@ -63,7 +66,14 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/features', require('./routes/features'));
+app.use(
+  '/features',
+  // basicAuthMiddleware({
+  //   name: 'pepito',
+  //   pass: '1234',
+  // }),
+  require('./routes/features'),
+);
 app.use('/change-locale', require('./routes/change-locale'));
 app.get('/login', loginController.index);
 app.post('/login', loginController.post);
