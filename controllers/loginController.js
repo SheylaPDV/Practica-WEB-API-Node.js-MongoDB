@@ -16,7 +16,7 @@ class LoginController {
       const usuario = await Usuario.findOne({ email });
 
       // si no lo encuentro o no coincide la contraseña --> error
-      if (!usuario || usuario.password !== password) {
+      if (!usuario || !(await usuario.comparePassword(password))) {
         res.locals.email = email;
         res.locals.error = res.__('invalid credentials');
         res.render('login');
@@ -24,11 +24,26 @@ class LoginController {
         return;
       }
 
+      // me apunto en la sesion de este usuarioque es un usuario logado
+      req.session.usuarioLogado = {
+        _id: usuario._id,
+      };
+
       // si lo encuentro y la contraseña coincide, --> redirigir a la zona privada
       res.redirect('/privado');
     } catch (error) {
       next(error);
     }
+  }
+
+  logout(req, res, next) {
+    req.session.regenerate((err) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.redirect('/');
+    });
   }
 }
 

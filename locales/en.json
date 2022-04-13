@@ -1,20 +1,36 @@
 {
-	"How are you": "How are you",
-	"i18n example for plurals": "i18n example for plurals",
-	"Mouse": {
-		"one": "Mouse",
-		"other": "Mice"
-	},
 	"esto es un ejemplo": "this is an example",
 	"Caracteristicas": "Features",
 	"Titulo de caracteristicas": "Features title",
-	"Features title": "Features title",
-	"this is an example": "this is an example",
+	"Esto es un ejemplo": "this is an example",
+	"Acceso": "Login",
+	"Direccion o email": "Email or address",
+	"Contraseña": "Password",
+	"Enviar": "Submit",
+	"Direccion de email": "Email address",
+	"Credenciales invalidas": "invalid credentials",
+	"Zona privada": "Private zone",
+	"error": "error",
+	"Crear producto": "Create product",
+	"¡Bienvenido a Nodepop!": "¡Welcome to Nodepop!",
+	"tituloProductos": "tituloProductos",
+	"Descargar": "Download",
 	"Login": "Login",
-	"Email or address": "Email or address",
+	"this is an example": "this is an example",
+	"Create product": "Create product",
+	"Download": "Download",
+	"¡Welcome to Nodepop!": "¡Welcome to Nodepop!",
+	"i18n example for plurals": "i18n example for plurals",
+	"Mouse": {
+		"one": "Mouse",
+		"other": "Mouse"
+	},
+	"Email address": "Email address",
 	"Password": "Password",
 	"Submit": "Submit",
-	"Email address": "Email address",
+	"Private zone": "Private zone",
+	"Features title": "Features title",
 	"invalid credentials": "invalid credentials",
-	"Private zone": "Private zone"
+	"Logout": "Logout",
+	"Private": "Private"
 }

@@ -1,17 +1,23 @@
 {
-	"How are you": "Que tal estas",
-	"i18n example for plurals": "i18n ejemplo con plurales",
-	"Mouse": {
-		"one": "Raton",
-		"other": "Ratones"
-	},
 	"this is an example": "esto es un ejemplo",
 	"Features title": "Titulo de caracteristicas",
-	"Login": "Login",
-	"Email or address": "Email or address",
-	"Password": "Password",
-	"Submit": "Submit",
-	"Email address": "Email address",
-	"invalid credentials": "invalid credentials",
-	"Private zone": "Private zone"
+	"Login": "Entrar",
+	"Email or address": "Email o direccion",
+	"Password": "Contraseña",
+	"Submit": "Enviar",
+	"Email address": "Direccion de email",
+	"invalid credentials": "Credenciales invalidas",
+	"Private zone": "Zona privada",
+	"error": "error",
+	"Create product": "Crear producto",
+	"¡Welcome to Nodepop!": "¡Bienvenido a Nodepop!",
+	"tituloProductos": "tituloProductos",
+	"Download": "Descargar",
+	"i18n example for plurals": "i18n example for plurals",
+	"Mouse": {
+		"one": "Raton",
+		"other": "Raton"
+	},
+	"Logout": "Logout",
+	"Private": "Private"
 }

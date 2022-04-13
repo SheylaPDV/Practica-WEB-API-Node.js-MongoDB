@@ -14,8 +14,8 @@
         <!-- Mashead text and app badges-->
         <div class="mb-5 mb-lg-0 text-center text-lg-start">
           <h1 class="tituloPrincipal"><%= title %></h1>
-          <h1><%=__('How are you') %></h1>
-          <h3>¡Bienvenido a <%= title %>!</h3>
+
+          <h3><%= __('¡Welcome to Nodepop!')%></h3>
           <h2><%= tituloProductos %></h2>
 
           <% productos.forEach( producto=> { %>
@@ -31,11 +31,11 @@
             <%= producto.tags %>
           </div>
           <% }) %>
-          <h2><%= ejemplo %></h2>
+          <!-- <h2><%= ejemplo %></h2>
           <h2><%= __('i18n example for plurals') %></h2>
           <p>0 <%= __n('Mouse', 0) %></p>
           <p>1 <%= __n('Mouse', 1) %></p>
-          <p>2 <%= __n('Mouse', 2) %></p>
+          <p>2 <%= __n('Mouse', 2) %></p> -->
         </div>
       </div>
     </div>
