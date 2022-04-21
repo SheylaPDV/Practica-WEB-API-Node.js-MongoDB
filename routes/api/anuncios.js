@@ -1,11 +1,10 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
-const Producto = require('../modelos/Producto');
+// var express = require('express');
+// var router = express.Router();
+// const Producto = require('../../modelos/Producto');
 
-/* GET página inicio */
-router.get('/', async function (req, res, next) {
+router.get('/privado', async function (req, res, next) {
   res.locals.tituloProductos = 'LISTA DE PRODUCTOS:';
   const mensaje = res.__('this is an example');
   res.locals.ejemplo = `<script>alert('${mensaje}')</script>`;

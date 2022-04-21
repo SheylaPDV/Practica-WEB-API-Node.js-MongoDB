@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'publicOne'))); //Middleware de esta
 // /setup de i18n
 // se encarga de coger la cabecera de la peticiion lenguagwe
 app.use(i18n.init);
-app.use('/', jwtAuth, require('./routes/index'));
+app.use('/api/anuncios', require('./routes/index'));
 app.post('/api/authenticate', loginController.postJWT);
 
 // setup de sesiones del website
