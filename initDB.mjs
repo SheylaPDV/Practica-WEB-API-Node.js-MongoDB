@@ -31,12 +31,13 @@ async function initUsuarios() {
 
   //crear usuarios
   const usuarios = await Usuario.insertMany([
+    //insertMany: pora insertar en DB
     {
       email: 'admin@example.com',
       password: await Usuario.hashPassword('1234'),
     },
     {
-      email: 'user1@example.com',
+      email: 'user@example.com',
       password: await Usuario.hashPassword('1234'),
     },
   ]);

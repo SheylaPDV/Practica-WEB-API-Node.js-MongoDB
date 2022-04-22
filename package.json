@@ -8,6 +8,7 @@
     "initdb": "node initDB.mjs"
   },
   "dependencies": {
+    "amqplib": "^0.8.0",
     "basic-auth": "^2.0.1",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",

@@ -32,13 +32,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'publicOne'))); //Middleware de estaticos
 
-//Rutas de mi API
-// app.use('/routes/productos', require('./routes/productos'));
-
 // /setup de i18n
 // se encarga de coger la cabecera de la peticiion lenguagwe
 app.use(i18n.init);
-app.use('/api/anuncios', require('./routes/index'));
+
+//Rutas de mi API
+app.use('/api/anuncios', jwtAuth, require('./routes/index'));
 app.post('/api/authenticate', loginController.postJWT);
 
 // setup de sesiones del website
