@@ -33,6 +33,13 @@ class LoginController {
         _id: usuario._id,
       };
 
+      // enviar un email al usuario
+      // const result = await usuario.enviarEmail(
+      //   'Bienvenido',
+      //   'Bienvenido a NodeApp',
+      // );
+      // console.log(result);
+
       // si lo encuentro y la contraseña coincide, --> redirigir a la zona privada
       res.redirect('/privado');
     } catch (error) {
