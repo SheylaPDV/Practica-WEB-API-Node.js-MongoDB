@@ -19,5 +19,6 @@
 		"other": "Raton"
 	},
 	"Logout": "Logout",
-	"Private": "Private"
+	"Private": "Private",
+	"User not found": "User not found"
 }

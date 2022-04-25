@@ -38,7 +38,7 @@ app.use(i18n.init);
 
 //Rutas de mi API
 app.use('/api/anuncios', jwtAuth, require('./routes/index'));
-app.post('/api/authenticate', loginController.postJWT);
+app.post('/api/authenticate', loginController.postJWT, );
 
 // setup de sesiones del website
 app.use(

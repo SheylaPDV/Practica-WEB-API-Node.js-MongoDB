@@ -1,6 +1,5 @@
 'use strict';
-const jwt = require('jsonwebtoken');
-
+const jwt = require('jsonwebtoken')
 const { Usuario } = require('../modelos');
 
 class LoginController {
@@ -14,17 +13,24 @@ class LoginController {
 
   async post(req, res, next) {
     try {
+      // envio email y password en el body
       const { email, password } = req.body;
 
       //buscar usuario en la base de datos
       const usuario = await Usuario.findOne({ email });
+
+      if (!usuario) {
+        res.locals.email = email;
+        res.locals.error = res.__('User not found');
+        res.render('login');
+        return;
+      }
 
       // si no lo encuentro o no coincide la contraseña --> error
       if (!usuario || !(await usuario.comparePassword(password))) {
         res.locals.email = email;
         res.locals.error = res.__('invalid credentials');
         res.render('login');
-
         return;
       }
 
@@ -47,7 +53,7 @@ class LoginController {
     }
   }
 
-  //Logout
+  //Logout, si cierro me envia a inciio
 
   logout(req, res, next) {
     req.session.regenerate((err) => {
@@ -68,29 +74,37 @@ class LoginController {
       //buscar usuario en la base de datos
       const usuario = await Usuario.findOne({ email });
 
+      if (!usuario) {
+        res.locals.email = email;
+        res.locals.error = res.__('User not found');
+        res.render('login');
+        return;
+      }
+
       // si no lo encuentro o no coincide la contraseña --> error
       if (!usuario || !(await usuario.comparePassword(password))) {
-        res.json({ error: 'invalid credentials' });
-
+        res.locals.email = email;
+        res.locals.error = res.__('invalid credentials');
+        res.render('login');
         return;
       }
 
       // generamos un JWT con su _id
-      jwt.sign(
+      let jwtToken = jwt.sign(
         { _id: usuario._id },
         process.env.JWT_SECRET,
         {
-          expiresIn: '2d',
-        },
-        (err, jwtToken) => {
-          if (err) {
-            next(err);
-            return;
-          }
-          // devolver al cliente el token general
-          res.json({ token: jwtToken });
-        },
+          expiresIn: '2h',
+        }
       );
+      
+      //req.body.token = jwtToken;
+
+      req.query.token = jwtToken;
+      
+      console.log("Antes de anuncios",req.body)
+      res.redirect('/api/anuncios');
+
     } catch (error) {
       next(error);
     }

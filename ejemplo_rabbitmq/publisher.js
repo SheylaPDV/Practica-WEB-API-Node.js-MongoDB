@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
-const connectionPromise = require('./connectAMQP');
+const connectionPromise = require("./connectAMQP");
 
-const QUEUE_NAME = 'tareas';
+const QUEUE_NAME = "tareas";
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function main() {
   // conectar alk servidor AMQP (RabbitMQ)
 
@@ -12,14 +13,24 @@ async function main() {
   const canal = await connection.createChannel();
   // asegurar que existe una cola (si no existe que la cree, y si no, no pasa nada)
 
-  await canal.assertQueue(QUEUE_NAME, {});
-  // enviar un mensaje al worker
+  await canal.assertQueue(QUEUE_NAME, {
+    durable: true,
+  });
+  // cuantos mensajes voy a procesar en paralelo(prefetch es limitado y 1 a 1 mensaje en paralelo)
+  canal.prefetch(1);
 
-  const message = {
-    nombre: 'tarea a realizar numero ' + Date.now(),
-  };
+  while (true) {
+    // enviar un mensaje al worker
+    const message = {
+      nombre: "tarea a realizar numero " + Date.now(),
+    };
 
-  canal.sendToQueue(QUEUE_NAME, Buffer.from());
+    canal.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(message)), {
+      persistent: true
+    });
+    console.log("publicando el mensaje", message.nombre);
+    await sleep(1000);
+  }
 }
 
-main().reject((err) => console.log('Hubo un error', err)); //llamo a la funcion y si hay un error
+main().reject((err) => console.log("Hubo un error", err)); //llamo a la funcion y si hay un error

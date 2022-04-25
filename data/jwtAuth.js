@@ -6,8 +6,9 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
   // recogerr el jwtToken de la cabecera, o de la query-string , o del body
-  const jwtToken =
-    req.get('Authorization') || req.query.token || req.body.token;
+  console.log(req.query);
+
+  const jwtToken = req.get('Authorization') || req.query.token || req.body.token;
 
   // comprobar que el token existe
   if (!jwtToken) {
