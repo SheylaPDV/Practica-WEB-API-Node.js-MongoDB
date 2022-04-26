@@ -11,7 +11,7 @@ import dbConnection from './data/conexion_mongoDB.js';
 
 import Producto from './modelos/Producto.js';
 import Usuario from './modelos/Usuario.js';
-import { resolve } from 'path';
+import {resolve} from 'path';
 
 async function main() {
   // inicializar productos
