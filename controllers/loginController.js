@@ -99,10 +99,11 @@ class LoginController {
       );
       
       //req.body.token = jwtToken;
-
+      // const token = data.accessToken;
+      // req.query.localStorage.setItem('jwt', token);
       req.query.token = jwtToken;
       
-      console.log("Antes de anuncios",req.body)
+      console.log('tokeeen',token )
       res.redirect('/api/anuncios');
 
     } catch (error) {
