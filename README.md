@@ -27,8 +27,13 @@ En desarrollo:
 ```sh
 npm run dev
 ```
+# Tambien se puede arrancar con pm2:
 
-## Iniciar BD:
+```sh
+pm2 start ecosystem.config.js
+```
+
+# Iniciar BD:
 
 - Borrará todos los productos y los volverá a meter desde el fichero productos.json dentro de la BD:
 

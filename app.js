@@ -23,8 +23,8 @@ app.set('view engine', 'html'); //motor a utilizar de plantillas ejs
 app.engine('html', require('ejs').__express); //que renderice con extension htmlk pero con motor ejs
 app.locals.title = 'NodePOP';
 
-// esto son Middlewares de nuestra aplicacion
-// Los evalua Express ante cada peticion q ue recibe.
+// esto son Middlewares de nuestra aplicacion(intermediarios)
+// Los evalua Express ante cada peticion que recibe.
 
 app.use(logger('dev')); //middleware de log(lo que aparece en la terminal)
 app.use(express.json());
@@ -74,9 +74,13 @@ app.use(
   require('./routes/features'),
 );
 app.use('/change-locale', require('./routes/change-locale'));
+// trae email y contraseña
 app.get('/login', loginController.index);
+// post login recoge email y contraseña yt verifica
 app.post('/login', loginController.post);
+// cierra sesion
 app.get('/logout', loginController.logout);
+// para ir a privado se necesita authorizatrion y email + contraseña
 app.get('/privado', sessionAuth, privadoController.index);
 
 // catch 404 and forward to error handler

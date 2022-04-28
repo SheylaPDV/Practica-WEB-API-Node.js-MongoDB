@@ -1,59 +1,69 @@
-'use strict';
-const jwt = require('jsonwebtoken')
-const { Usuario } = require('../modelos');
+"use strict";
+const jwt = require("jsonwebtoken");
+const { Usuario } = require("../modelos");
 
 class LoginController {
   index(req, res, next) {
-    res.locals.email = '';
-    res.locals.error = '';
-    res.render('login');
+    res.locals.email = "";
+    res.locals.error = "";
+    res.render("login");
   }
 
   //login post from website
 
   async post(req, res, next) {
     try {
-      // envio email y password en el body
+      // RECOGO EMAIL Y PASSWORD DEL BODY CON DESTRUCTURING
       const { email, password } = req.body;
 
-      //buscar usuario en la base de datos
+      //BUSCO USUARIO EN LA BD
       const usuario = await Usuario.findOne({ email });
 
+      // SI NO EXISTE EL USUARIO EN LA BD, MANTGENEMOS EMAIL EN INPUT, DAMOS MENSAJE (USER NOT FOUND), Y RENDERIZAMOS LA MISMA PAGINA DE LOGIN
       if (!usuario) {
         res.locals.email = email;
-        res.locals.error = res.__('User not found');
-        res.render('login');
+        res.locals.error = res.__("User not found");
+        res.render("login");
         return;
       }
 
-      // si no lo encuentro o no coincide la contraseña --> error
+      // SI NO EXISTE EL USUARIO O NO COINCIDE LA CONTRASEÑA, MANTENEMOS EMAIL EN EL INPUT, MANDAMOS MENSAJE(CREDENCIALES INVALIDAS) Y RENDERIZAMOS LA MISMA PAGINA DE LOGIN
+
       if (!usuario || !(await usuario.comparePassword(password))) {
         res.locals.email = email;
-        res.locals.error = res.__('invalid credentials');
-        res.render('login');
+        res.locals.error = res.__("invalid credentials");
+        res.render("login");
         return;
       }
 
-      // me apunto en la sesion de este usuarioque es un usuario logado
+      // ME APUNTO EN LA SESION DE ESTE USUARIO QUE ES UN USUARIO LOGADO
       req.session.usuarioLogado = {
         _id: usuario._id,
       };
+      // ---------------------------------------------------------------------------------------------------------
+      // ENVIAR EMAILS
 
-      // enviar un email al usuario
-      // const result = await usuario.enviarEmail(
-      //   'Bienvenido',
-      //   'Bienvenido a NodeApp',
-      // );
-      // console.log(result);
+      // ENVIAR UN EMAIL AL USUARIO
+      //  usuario.enviarEmail(
+      //     'Bienvenido',
+      //     'Bienvenido a NodeApp',
+      //   );
 
-      // si lo encuentro y la contraseña coincide, --> redirigir a la zona privada
-      res.redirect('/privado');
+      // const resultado = usuario
+      //   .enviarEmailConMicroservicio("Bienvenido", "Bienvenido a NodeApp")
+      //   .catch((err) => {
+      //     console.log("Hubo un error al enviar el email", err);
+      //   });
+      // -----------------------------------------------------------------------------------------------------
+
+      // SI LO ENCUENTRO Y LA CONTRASEÑA COINCIDE, REDIRIGIR A LA ZONA PRIVADA
+      res.redirect("/privado");
     } catch (error) {
       next(error);
     }
   }
 
-  //Logout, si cierro me envia a inciio
+  //CERRAR SESION, SI CIERRO ME ENVIA AL INICIO
 
   logout(req, res, next) {
     req.session.regenerate((err) => {
@@ -61,51 +71,54 @@ class LoginController {
         next(err);
         return;
       }
-      res.redirect('/');
+      res.redirect("/");
     });
   }
 
-  // login post desde API que retorna JWT
+  // LOGIN POST DESDE API QUE RETORNA JWT
 
   async postJWT(req, res, next) {
     try {
       const { email, password } = req.body;
 
-      //buscar usuario en la base de datos
+      //BUSCAMOS USUARTIO EN LA BASE DE DATOS
       const usuario = await Usuario.findOne({ email });
-
+      // SI NO EXISTE EL USUARIO EN LA BD, MANTGENEMOS EMAIL EN INPUT, DAMOS MENSAJE (USER NOT FOUND), Y RENDERIZAMOS LA MISMA PAGINA DE LOGIN
       if (!usuario) {
         res.locals.email = email;
-        res.locals.error = res.__('User not found');
-        res.render('login');
+        res.locals.error = res.__("User not found");
+        res.render("login");
         return;
       }
 
-      // si no lo encuentro o no coincide la contraseña --> error
+      // SI NO EXISTE EL USUARIO O NO COINCIDE LA CONTRASEÑA, MANTENEMOS EMAIL EN EL INPUT, MANDAMOS MENSAJE(CREDENCIALES INVALIDAS) Y RENDERIZAMOS LA MISMA PAGINA DE LOGIN
       if (!usuario || !(await usuario.comparePassword(password))) {
         res.locals.email = email;
-        res.locals.error = res.__('invalid credentials');
-        res.render('login');
+        res.locals.error = res.__("invalid credentials");
+        res.render("login");
         return;
       }
 
-      // generamos un JWT con su _id
-      let jwtToken = jwt.sign(
+      //SI COINCIDE USUARIO Y CONTRASEÑA EN LA BD, GENERAMOS UN JWT CON SU _ID
+      jwt.sign(
         { _id: usuario._id },
         process.env.JWT_SECRET,
         {
-          expiresIn: '2h',
+          expiresIn: "2d",
+        },
+        (err, jwtToken) => {
+          if (err) {
+            next(err);
+            return;
+          }
+          // DEVOLVER EL TOKEN AL CLIENTE EN FORMATO JSON
+          res.json({ token: jwtToken });
+         
         }
       );
       
-      //req.body.token = jwtToken;
-      // const token = data.accessToken;
-      // req.query.localStorage.setItem('jwt', token);
-      req.query.token = jwtToken;
-      
-      console.log('tokeeen',token )
-      res.redirect('/api/anuncios');
-
+      // REDIRIGIMOS A API ANUNCIOS SI TIENE TOKEN
+      res.redirect("/api/anuncios");
     } catch (error) {
       next(error);
     }
