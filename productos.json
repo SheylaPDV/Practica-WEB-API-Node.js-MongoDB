@@ -3,56 +3,56 @@
         "nombre": "BMW",
         "venta": true,
         "precio": 15030,
-        "foto": "/images/img_productos/minion.jpg",
+        "foto": "/img_productos/minion.jpg",
         "tags": ["lifestyle", "motor"]
     },
     {
         "nombre": "Moto Honda",
         "venta": false,
         "precio": 4000,
-        "foto": "/images/img_productos/minion.jpg",
+        "foto": "/img_productos/minion.jpg",
         "tags": ["work", "motor"]
     },
     {
         "nombre": "Bicicleta",
         "venta": false,
         "precio": 378,
-        "foto": "/images/img_productos/minion.jpg",
+        "foto": "/img_productos/minion.jpg",
         "tags": ["motor"]
     },
     {
         "nombre": "Mancuernas",
         "venta": true,
         "precio": 20,
-        "foto": "/images/img_productos/minion.jpg",
+        "foto": "/img_productos/minion.jpg",
         "tags": ["lifestyle"]
     },
     {
         "nombre": "Furgoneta ford",
         "venta": true,
         "precio": 2000,
-        "foto": "/images/img_productos/minion.jpg",
+        "foto": "/img_productos/minion.jpg",
         "tags": ["work", "motor"]
     },
     {
         "nombre": "Cortinas Bob",
         "venta": false,
         "precio": 10,
-        "foto": "/images/img_productos/minion.jpg",
+        "foto": "/img_productos/minion.jpg",
         "tags": ["textil"]
     },
     {
         "nombre": "Bicicleta electrica",
         "venta": true,
         "precio": 1200,
-        "foto": "/images/img_productos/minion.jpg",
+        "foto": "/img_productos/minion.jpg",
         "tags": ["work", "motor"]
     },
     {
         "nombre": "Vestido playero",
         "venta": true,
         "precio": 30,
-        "foto": "/images/img_productos/minion.jpg",
+        "foto": "/img_productos/minion.jpg",
         "tags": ["moda", "textil"]
     },
     {
