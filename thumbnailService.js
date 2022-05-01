@@ -2,9 +2,7 @@
 
 const { Responder } = require("cote");
 
-const nodemailer = require("nodemailer");
 const jimp = require("jimp");
-const { create } = require("jimp");
 const responder = new Responder({ name: "servicio de thumbnails" });
 
 async function main() {

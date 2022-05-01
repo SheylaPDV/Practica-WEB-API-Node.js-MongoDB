@@ -1,13 +1,12 @@
-'use strict';
+"use strict";
 
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const Producto = require('../modelos/Producto');
+const Producto = require("../models/Producto");
 
 /* GET página inicio */
-router.get('/', async function (req, res, next) {
-  
-  const mensaje = res.__('this is an example');
+router.get("/", async function (req, res, next) {
+  const mensaje = res.__("this is an example");
   res.locals.ejemplo = `<script>alert('${mensaje}')</script>`;
 
   try {
@@ -22,15 +21,15 @@ router.get('/', async function (req, res, next) {
     const sort = req.query.sort;
 
     console.log(
-      'El usuario que ha hecho esta peticion tiene el _id:,',
-      req.apiUserId,
+      "El usuario que ha hecho esta peticion tiene el _id:,",
+      req.apiUserId
     );
 
     const filtros = {};
 
     if (nombre) {
-      filtros.nombre = new RegExp('^' + req.query.nombre, 'i');
-      console.log('Filtros' + filtros);
+      filtros.nombre = new RegExp("^" + req.query.nombre, "i");
+      console.log("Filtros" + filtros);
     }
     if (precio) {
       if (precio < 0) {
@@ -55,12 +54,12 @@ router.get('/', async function (req, res, next) {
     next(err);
   }
 
-  res.render('index');
+  res.render("index");
 });
 
 // POST
 // Crea un nuevo producto
-router.post('/api/anuncios', async (req, res, next) => {
+router.post("/api/anuncios", async (req, res, next) => {
   try {
     const productoData = req.body;
     console.log(productoData);

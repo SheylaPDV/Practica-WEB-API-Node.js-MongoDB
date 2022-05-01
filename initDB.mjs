@@ -9,8 +9,8 @@ import dbConnection from "./data/conexion_mongoDB.js";
 
 // cargar modelos
 
-import Producto from "./modelos/Producto.js";
-import Usuario from "./modelos/Usuario.js";
+import Producto from "./models/Producto.js";
+import Usuario from "./models/Usuario.js";
 import { resolve } from "path";
 
 async function main() {

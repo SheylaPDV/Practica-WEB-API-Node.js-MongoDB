@@ -1,6 +1,6 @@
 "use strict";
-const { Usuario } = require("../modelos");
-const { Producto } = require("../modelos");
+const { Usuario } = require("../models");
+const { Producto } = require("../models");
 const multer = require("multer");
 const { Requester } = require("cote");
 const requester = new Requester({ name: "app" });
@@ -63,7 +63,7 @@ class ProductsController {
       //   },
       //   productos
       // };
-      //console.log(respuesta);
+
       //res.render("products", respuesta);
       //return productos;
       res.status(200).json({ productos });

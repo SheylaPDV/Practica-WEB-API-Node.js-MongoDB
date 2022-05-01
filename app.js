@@ -26,22 +26,22 @@ const storage = multer.diskStorage({
     cb(null, "images/img_productos/");
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
+    cb(null, file.originalname);
+  },
 });
-console.log(storage)
+console.log(storage);
 const upload = multer({ storage: storage });
 
 // view engine setup
-app.set("views", path.join(__dirname, "views")); //path.join dice que una esas dos directivas
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "html"); //motor a utilizar de plantillas ejs
-app.engine("html", require("ejs").__express); //que renderice con extension htmlk pero con motor ejs
+app.engine("html", require("ejs").__express); //que renderice con extension html pero con motor ejs
 app.locals.title = "NodePOP";
 
 // esto son Middlewares de nuestra aplicacion(intermediarios)
 // Los evalua Express ante cada peticion que recibe.
 
-app.use(logger("dev")); //middleware de log(lo que aparece en la terminal)
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -88,16 +88,13 @@ app.use((req, res, next) => {
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
 app.use("/change-locale", require("./routes/change-locale"));
+
 // trae email y contraseña
 app.get("/login", loginController.index);
-// post login recoge email y contraseña yt verifica
-// app.post('/login', loginController.post);
+
 // cierra sesion
 app.get("/logout", loginController.logout);
-// para ir a privado se necesita authorizatrion y email + contraseña
-// app.get('/privado', sessionAuth, productsController.index);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
