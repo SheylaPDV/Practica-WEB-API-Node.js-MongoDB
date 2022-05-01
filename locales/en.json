@@ -30,5 +30,6 @@
 	"Password": "Password",
 	"Submit": "Submit",
 	"Private": "Private",
-	"Logout": "Logout"
+	"Logout": "Logout",
+	"User not found": "User not found"
 }

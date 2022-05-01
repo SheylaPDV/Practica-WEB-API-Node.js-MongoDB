@@ -19,54 +19,7 @@
         "precio": 378,
         "foto": "/img_productos/minion.jpg",
         "tags": ["motor"]
-    },
-    {
-        "nombre": "Mancuernas",
-        "venta": true,
-        "precio": 20,
-        "foto": "/img_productos/minion.jpg",
-        "tags": ["lifestyle"]
-    },
-    {
-        "nombre": "Furgoneta ford",
-        "venta": true,
-        "precio": 2000,
-        "foto": "/img_productos/minion.jpg",
-        "tags": ["work", "motor"]
-    },
-    {
-        "nombre": "Cortinas Bob",
-        "venta": false,
-        "precio": 10,
-        "foto": "/img_productos/minion.jpg",
-        "tags": ["textil"]
-    },
-    {
-        "nombre": "Bicicleta electrica",
-        "venta": true,
-        "precio": 1200,
-        "foto": "/img_productos/minion.jpg",
-        "tags": ["work", "motor"]
-    },
-    {
-        "nombre": "Vestido playero",
-        "venta": true,
-        "precio": 30,
-        "foto": "/img_productos/minion.jpg",
-        "tags": ["moda", "textil"]
-    },
-    {
-        "nombre": "Ordenador HP",
-        "venta": false,
-        "precio": 450,
-        "foto": "/images/img_productos/minion.jpg",
-        "tags": ["work", "electronica"]
-    },
-    {
-        "nombre": "Camiseta",
-        "venta": true,
-        "precio": 15,
-        "foto": "/images/img_productos/minion.jpg",
-        "tags": ["moda", "textil"]
     }
+   
+ 
 ]

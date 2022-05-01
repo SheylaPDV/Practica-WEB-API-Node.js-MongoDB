@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
   }
 
   // comprobar que el token es valido
-  console.log(process.env.JWT_SECRET);
+ 
   jwt.verify(jwtToken, process.env.JWT_SECRET, (err, payload) => {
     if (err) {
       const error = new Error("invalid token");

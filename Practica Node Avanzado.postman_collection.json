@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "9a1ad26b-9b2b-42a4-bf45-ce7d3f20814f",
+		"name": "Practica Node Avanzado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@example.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/anuncios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZlOTk3NTIwZmIxZmI3ZWM4OGE5OGMiLCJpYXQiOjE2NTE0MTg3MzQsImV4cCI6MTY1MTU5MTUzNH0.Izd-d-QtkAFO6Wvbyyzock_ifaznXmSBe_o8MKYewqo",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/anuncios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"anuncios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/anuncios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjZjMWRhMDcxNGYyMTFhMjFlYzg5NmIiLCJpYXQiOjE2NTEyNTI3MTEsImV4cCI6MTY1MTQyNTUxMX0.zVzjOb26n03MU4wkUx3wvA07ImOO-rECSWR7m0sSeYc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/Sheyla/OneDrive/Escritorio/La-importancia-de-la-imagen.jpg"
+						},
+						{
+							"key": "nombre",
+							"value": "bici",
+							"type": "default"
+						},
+						{
+							"key": "precio",
+							"value": "6000",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/anuncios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"anuncios"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
