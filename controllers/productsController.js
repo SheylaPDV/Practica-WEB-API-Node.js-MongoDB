@@ -75,28 +75,28 @@ class ProductsController {
 
   async post(req, res, next) {
     try {
-      console.log("foto:", req.file);
+      // console.log("foto:", req.file);
       const productoData = req.body;
 
       const producto = new Producto(productoData);
-      producto.foto = "/img_productos/" + req.file.originalname;
-      console.log(producto);
+      // producto.foto = "/img_productos/" + req.file.originalname;
+      // console.log(producto);
 
       const productoGuardado = await producto.save();
       res.status(201).json({ result: productoGuardado });
       // Productor
 
-      requester.send(
-        {
-          type: "convertir-imagen",
-          file: producto.foto,
-          destination: req.file.destination,
-          filename: req.file.filename,
-        },
-        (resultado) => {
-          console.log("Thumbnails obtiene resultado:", resultado);
-        }
-      );
+      // requester.send(
+      //   {
+      //     type: "convertir-imagen",
+      //     file: producto.foto,
+      //     destination: req.file.destination,
+      //     filename: req.file.filename,
+      //   },
+      //   (resultado) => {
+      //     console.log("Thumbnails obtiene resultado:", resultado);
+      //   }
+      // );
     } catch (err) {
       next(err);
     }
