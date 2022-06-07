@@ -1,6 +1,6 @@
 "use strict";
-const { Usuario } = require("../models");
-const { Producto } = require("../models");
+const { Usuario } = require("../modelos");
+const { Producto } = require("../modelos");
 const multer = require("multer");
 const { Requester } = require("cote");
 const requester = new Requester({ name: "app" });
