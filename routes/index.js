@@ -2,7 +2,7 @@
 
 var express = require("express");
 var router = express.Router();
-const Producto = require("../modelos/Producto");
+const Producto = require("../models/Producto");
 
 /* GET página inicio */
 router.get("/apiv1/anuncios", async function (req, res, next) {

@@ -1,6 +1,6 @@
 "use strict";
 const jwt = require("jsonwebtoken");
-const { Usuario } = require("../modelos");
+const { Usuario } = require("../models");
 
 class LoginController {
   index(req, res, next) {
