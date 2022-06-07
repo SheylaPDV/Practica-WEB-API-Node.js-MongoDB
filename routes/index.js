@@ -2,12 +2,11 @@
 
 var express = require("express");
 var router = express.Router();
-const Producto = require("../models/Producto");
+const Producto = require("../modelos/Producto");
 
 /* GET página inicio */
-router.get("/", async function (req, res, next) {
-  const mensaje = res.__("this is an example");
-  res.locals.ejemplo = `<script>alert('${mensaje}')</script>`;
+router.get("/apiv1/anuncios", async function (req, res, next) {
+  res.locals.tituloProductos = "LISTA DE PRODUCTOS:";
 
   try {
     const nombre = req.query.nombre;
@@ -19,11 +18,6 @@ router.get("/", async function (req, res, next) {
     const limit = req.query.limit;
     const select = req.query.select;
     const sort = req.query.sort;
-
-    console.log(
-      "El usuario que ha hecho esta peticion tiene el _id:,",
-      req.apiUserId
-    );
 
     const filtros = {};
 
@@ -59,7 +53,7 @@ router.get("/", async function (req, res, next) {
 
 // POST
 // Crea un nuevo producto
-router.post("/api/anuncios", async (req, res, next) => {
+router.post("/apiv1/anuncios", async (req, res, next) => {
   try {
     const productoData = req.body;
     console.log(productoData);

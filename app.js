@@ -17,20 +17,20 @@ require("./data/conexion_mongoDB");
 const loginController = new LoginController();
 const productsController = new ProductsController();
 const jwtAuth = require("./data/jwtAuth");
-// const multer = require("multer");
+const multer = require("multer");
 
-// const storage = multer.diskStorage({
-//   // destination para guardar los ficheros que hagan upload
-//   destination: function (req, file, cb) {
-//     // aqui defino donde guardo los ficheros
-//     cb(null, "images/img_productos/");
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname);
-//   },
-// });
-// console.log(storage);
-// const upload = multer({ storage: storage });
+const storage = multer.diskStorage({
+  // destination para guardar los ficheros que hagan upload
+  destination: function (req, file, cb) {
+    // aqui defino donde guardo los ficheros
+    cb(null, "images/img_productos/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+console.log(storage);
+const upload = multer({ storage: storage });
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -58,7 +58,7 @@ app.get("/api/anuncios", jwtAuth, productsController.index);
 app.post(
   "/api/anuncios",
   jwtAuth,
-  // upload.single("foto"),
+  upload.single("foto"),
   productsController.post
 );
 app.post("/api/authenticate", loginController.postJWT);
