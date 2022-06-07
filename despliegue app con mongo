@@ -1,0 +1,17 @@
+## Despliegue App parse con db
+
+Dentro de usuario de ubuntu, creamos nuevo usuario: sudo adduser parse
+Bloquear usuario: sudo passwd -l parse
+nos convertiumos en el usuario parse: sudo -u parse -i
+Siendo el usuario parse, instalamos nvm con el comando: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+Compruebo que estya instalado con: nvm
+Instalar la version que requiera: nvm install 18
+Clonar el repo de git: git clone <repo>
+Entramos en la app: cd <lo que sea>
+Instalar dependencias: npm i
+Arrancar el archivo princpial: (npm start..)
+instalar mongo db en ubuntu:https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition
+entrtar primero en usuario ubuntu e instalar db: wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+Despues creamos archivo en carpeta etc conm lo necesario para instalar mongo: echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+Recargar apt paRA ver paquetes nuevos añadidos: sudo apt update
+instalar mongo DB: sudo apt install -y mongodb-org

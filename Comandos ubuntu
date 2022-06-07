@@ -1,0 +1,18 @@
+Comandos
+
+- te dice en que usuario estas: (sudo whoami)
+  Abrir un bash como si fuese otro usuario interactivo (chat):( sudo -u chat -i)
+  Ver donde estoy ubicado: (pwd)
+  Borrar recursivamente y `para que no pregunte: (rm -rf <carpeta, etc..>)
+  ver los logs: (/var/log)
+  ver la ruta completa de donde se encuentra un comando(del ejecutable de node): (which node)
+  ver seguimiento de una aplicacion: (sudo tail -f chat-stdout...)
+  para filtrar en la busqueda de ps aux: (ps aux | grep <nombre>)
+  PAra matar un proceso: (sudo kill <id>)
+  reiniciar servidor : (sudo reboot)
+  Parar nginx: (sudo service nginx stop)
+  Reiniciar supervisor: ( sudo supervisorctl restart <nombre servicio>)
+  en los puestos del 1 al 1024 solo comandos con el usuario root pueden ejecutarse en los pùertos
+  configuracion de nginx en: /etc/nginx/sites-available/ (sudo nano chat)
+  crear acceso directo de eso en enabled: (sudo ln -s <Ruta absoluta!!! origen:/etc/nginx/sites-available/ destino: /etc/nginx/sites-enabled/chat>)
+  comprobar que esl fichero de configuracion esta bien: (sudo nginx -t)
