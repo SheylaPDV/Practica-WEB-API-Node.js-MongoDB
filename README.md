@@ -5,6 +5,12 @@
 # Resumen:
 El proyecto esta pensado solo para funcionar desde el API, no desde el website.
 
+## Práctica del curso de DevOps
+
+URL: http://ec2-54-147-226-189.compute-1.amazonaws.com/apiv1/anuncios
+IP: http://54.147.226.189/
+X-propietario: SheylaPDV
+
 Para usar la aplicacion primero:
 Instalar dependencias -->
 
